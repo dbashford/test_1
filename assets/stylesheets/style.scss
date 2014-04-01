@@ -1,0 +1,72 @@
+@import "singularitygs";
+
+
+
+$grids: 3;
+$grids: add-grid(6 at 600px);
+$grids: add-grid(12 at 800px);
+//$gutter-styles: 'split';
+
+.container {
+  @include background-grid;
+  min-height: 100%;
+  margin: 0 auto;
+  nav {
+    @include grid-span(3,1);
+    background-color: white;
+    @include breakpoint(600px) {
+      @include grid-span(2,1);
+    }
+    @include breakpoint(800px) {
+      @include grid-span(2,1);
+    }
+  }
+  .content {
+    @include grid-span(3,1);
+    background-color: blue;
+    
+    @include breakpoint(600px) {
+      @include grid-span(4,3);
+    }
+    
+    @include breakpoint(800px) {
+      @include grid-span(10,3);
+    }
+    
+    aside#related {
+      background-color: green;
+      @include breakpoint(800px) {
+        @include grid-span(2,9,10);
+        height: 100%;
+      }
+    }
+    #newest, #most-viewed {
+      background-color: purple;
+    }
+    
+  }
+}
+
+#player {
+  @include breakpoint(600px) {
+    @include grid-span(8,1,10);
+  }
+
+  @include breakpoint(800px) {
+
+  }
+}
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#ba, #bb, #bc, .move {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid;
+}
